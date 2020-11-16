@@ -1,5 +1,5 @@
 <template>
-  <p>Sample</p>
+  <p>New text</p>
 </template>
 
 <script>
