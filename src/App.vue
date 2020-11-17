@@ -1,18 +1,55 @@
 <template>
-  <Home/>
+  <div class="app">
+    <Sidebar />
+    <Main />
+  </div>
 </template>
 
 <script>
-  import Home from "@/views/Home";
+  import Sidebar from '@/components/Sidebar';
+  import Main from '@/components/Main';
 
   export default {
     name: 'App',
     components: {
-      Home
+      Sidebar,
+      Main
     }
   }
 </script>
 
-<style>
+<style lang="sass">
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap')
+  
+  *
+    margin: 0
+    padding: 0
+    list-style-type: none
+    box-sizing: border-box
 
+  a
+    text-decoration: none
+    color: black
+
+    &:hover
+      color: indianred
+
+  .app
+    width: 1170px
+    margin: 0 auto
+    display: flex
+    font-family: Raleway
+
+    @media (max-width: 1199px)
+      width: 960px
+    
+    @media (max-width: 991px)
+      width: 720px
+
+    @media (max-width: 767px)
+      width: 540px
+
+    @media (max-width: 576px)
+      padding: 0 10px
+      width: auto
 </style>
