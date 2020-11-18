@@ -1,4 +1,8 @@
-export default {
-	red: '#fdd',
-	blue: '#ddf'
-}
+export const colors = [
+  'white',
+  'indianred',
+  'gold',
+  'olivedrab',
+  'lightseagreen',
+  'orchid'
+];

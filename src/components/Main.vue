@@ -1,8 +1,9 @@
 <template>
   <main class="main">
     <div class="wall">
+      <button class="create-record-button" @click="createRecord">+</button>
       <ul class="wall-records">
-        <Record v-for="record in visibleRecords" :record="record" />
+        <Record v-for="record in visibleRecords" :record="record" :key="record.id" />
       </ul>
     </div>
   </main>
@@ -26,8 +27,13 @@
         return store.state.records;
       });
 
+      function createRecord() {
+        store.commit('createRecord');
+      }
+
       return {
-        visibleRecords
+        visibleRecords,
+        createRecord
       }
     }
   }
@@ -35,9 +41,18 @@
 
 <style scoped lang="sass">
   .main
-    background-color: #ddd
     width: 100%
 
   .wall-records
-    padding: 15px 30px
+    padding: 0 30px
+
+  .create-record-button
+    border: 1px solid #ddd
+    background-color: #fff
+    width: 150px
+    height: 40px
+    font-size: 24px
+    margin: 15px auto
+    display: block
+    cursor: pointer
 </style>

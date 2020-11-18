@@ -2,15 +2,13 @@
   <aside class="sidebar">
 
     <ul class="modes-list">
-      <li><a href="#">Сегодня</a></li>
       <li><a href="#">Все</a></li>
-      <li><a href="#">Группы</a></li>
-      <li><a href="#">Проекты</a></li>
+      <li><a href="#">Важные</a></li>
     </ul>
 
     <ul class="filters">
       <li class="filter filter-colors">
-        <p class="filter-name">Цвета</p>
+        <p class="filter-name">Цвета:</p>
         <ul class="filter-options-list">
           <ColorOption v-for="color in colors" :color="color" />
         </ul>
@@ -47,4 +45,7 @@
 <style scoped lang="sass">
   .sidebar
     width: 200px
+
+  .modes-list
+    margin-bottom: 10px
 </style>
