@@ -26,6 +26,7 @@
     padding: 0
     list-style-type: none
     box-sizing: border-box
+    outline: none
 
   a
     text-decoration: none

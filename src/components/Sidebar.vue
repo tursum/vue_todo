@@ -33,7 +33,9 @@
     setup() {
       const store = useStore();
 
-      const colors = computed(() => store.state.colors);
+      const colors = computed(() => {
+        return new Set(store.state.records.map(record => record.color));
+      });
       
       return {
         colors
