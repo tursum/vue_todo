@@ -1,6 +1,6 @@
 export const colors = [
-  'white',
-  'indianred',
+  'lavender',
+  'salmon',
   'gold',
   'olivedrab',
   'lightseagreen',

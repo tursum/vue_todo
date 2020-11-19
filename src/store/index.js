@@ -5,14 +5,14 @@ function printConsole(func, text) {
 }
 
 class Record {
-  constructor() {
+  constructor(important) {
     let currentDate = new Date;
     this.id = Record.counter++;
     this.title = '';
     this.creationDate = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
     this.creationTime = currentDate.getHours() + ':' + currentDate.getMinutes();
-    this.color = 'white';
-    this.isImportant = false;
+    this.color = 'lavender';
+    this.isImportant = important;
     this.isDone = false;
     this.points = [];
     this.autofocus = true;
@@ -23,14 +23,13 @@ class Record {
 
 export default createStore({
   state: {
-    mode: 'today',
+    mode: 'all',
     colors: [],
-    tags: [],
     records: []
   },
   mutations: {
-    createRecord(state) {
-      state.records.push(new Record);
+    createRecord(state, important) {
+      state.records.push(new Record(important));
     },
     toggleRecordDone(state, record) {
       record.isDone = !record.isDone;
@@ -57,6 +56,7 @@ export default createStore({
       printConsole('changePointText:', props.newPointText);
     },
     completeRecord(state, record) {
+      record.isDone = true;
       record.points.forEach(point => point.isDone = true);
     },
     removeRecord(state, record) {
@@ -79,6 +79,17 @@ export default createStore({
     },
     removePointAutofocus(state, point) {
       point.autofocus = false;
+    },
+    changeMode(state, mode) {
+      state.mode = mode;
+    },
+    toggleColor(state, color) {
+      let colorPosition = state.colors.findIndex(c => c == color);
+      if (colorPosition != -1) {
+        state.colors.splice(colorPosition, 1);
+      } else {
+        state.colors.push(color);
+      }
     }
   }
 });

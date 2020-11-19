@@ -65,11 +65,16 @@
       let color = computed(() => props.record.color);
 
       let isDone = computed(() => {
-        let isUndonePoints = props.record.points.filter(i => i.isDone == false).length == 0;
-        if (props.record.points.length == 0) isUndonePoints = false;
+        let done = props.record.isDone;
 
-        if (props.record.isDone != isUndonePoints) {
-          store.commit('toggleRecordDone', props.record);
+        let points = props.record.points;
+
+        if (points.length > 0) {
+          let isUndonePoints = points.filter(i => i.isDone == false).length == 0;
+
+          if (done != isUndonePoints) {
+            store.commit('toggleRecordDone', props.record);
+          }
         }
 
         return props.record.isDone;
@@ -143,6 +148,8 @@
 <style scoped lang="sass">
   .record-cover
     margin-bottom: 20px
+    @media (max-width: 767px)
+      margin-bottom: 40px
 
   .record
     padding: 15px
@@ -226,6 +233,8 @@
     bottom: -11px
     right: 20px
     background-color: transparent
+    @media (max-width: 365px)
+      bottom: -31px
 
   .footer-button
     padding: 3px 10px

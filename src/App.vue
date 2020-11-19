@@ -49,6 +49,7 @@
 
     @media (max-width: 767px)
       width: 540px
+      flex-direction: column
 
     @media (max-width: 576px)
       padding: 0 10px
