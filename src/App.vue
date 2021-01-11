@@ -13,7 +13,8 @@
     name: 'App',
     components: {
       Sidebar,
-      Main
+      Main,
+      Rest
     }
   }
 </script>
